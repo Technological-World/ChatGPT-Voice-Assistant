@@ -1,0 +1,26 @@
+import speech_recognition as sr
+import pyttsx3
+import PyAudio
+
+listener = sr.Recognizer()
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voices', voices[1].id)
+print ('Hi, what can i do for you?')
+engine.say('Hi')
+engine.say('What can i do for you')
+engine.runAndWait()
+
+try: 
+  with sr.Micorphone() as source:
+    print('listening...')
+    voice = listener.listen
+    command = listener.recognize_google(voice)
+    print (command)
+    engine.say('Here we go')
+    engine.runAndWait()
+    
+
+except:
+  pass
+
